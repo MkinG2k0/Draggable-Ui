@@ -1,0 +1,93 @@
+@use "../../../Style/mix";
+
+$primary: mix.$color-base;
+$hover: mix.$color-second;
+
+$danger: mix.$color-red;
+$success: mix.$color-green;
+$warning: mix.$color-orange;
+
+$names: (
+  hover: $hover,
+  primary: $primary,
+  danger: $danger,
+  success: $success,
+  warning: $warning,
+);
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  user-select: none;
+  font-size: inherit;
+  transition: 0.2s all linear;
+  color: mix.$color-font-ui;
+
+  &:disabled {
+    background: mix.$color-gray-checked;
+    cursor: no-drop;
+  }
+
+  .bTitle {
+    padding: 0.1rem 0.4rem;
+  }
+}
+
+.liquid {
+  width: 100%;
+  height: 100%;
+}
+
+.btnImg {
+  width: 0.6em;
+}
+
+// Type
+
+.circle {
+  border-radius: 10rem;
+  padding: 0 0.4rem;
+}
+
+.link {
+  background: none !important;
+  color: inherit;
+  border-radius: 0.2em;
+
+  &:hover {
+    filter: brightness(85%);
+
+    //color: mix.$color-second;
+  }
+}
+
+.square {
+  border-radius: 0.2em;
+}
+
+.smooth {
+  border-radius: 0.4em;
+}
+
+@each $name, $value in $names {
+  .#{ $name} {
+    background: $value;
+
+    &:active {
+      filter: brightness(50%) !important;
+    }
+
+    &:hover {
+      filter: brightness(70%);
+      //box-shadow: 0 0 0 .1rem $value;
+      //background: darken($value, 20%);
+    }
+  }
+}

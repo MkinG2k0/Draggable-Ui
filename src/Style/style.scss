@@ -1,0 +1,13 @@
+/* -- My preset -- */
+
+/* Font */
+$fontSize: 2, 1.8, 1.7, 1.6, 1.4, 1.2, 1;
+
+.f {
+  @for $i from 1 through 7 {
+    &-#{$i } {
+      font-size: #{nth($fontSize, $i)}+ em;
+      //font-weight: 500;
+    }
+  }
+}
